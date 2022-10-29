@@ -11,6 +11,33 @@
   </head>
 
   <body>
+   <header class="header">
+    <div class="container navbar">
+      <a href="/games" class="logo">
+        <img
+          src="/images/logo.png"
+          alt="Critics"
+          height="40"
+        />
+      </a>
+     
+      
+      <%# Solo si estoy logueado metodo Logout%>
+      <%# o estoy logueado Sign in && Sign up%>
+      <div><% if user_signed_in? %></div>
+      <%= link_to "Edit profile", edit_user_registration_path %>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "button button--primary fit-content"%>
+      <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+      <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
+    </div>
+
+  </header>
+  <div class="body-content">
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
     <%= yield %>
+    </div>
   </body>
 </html>
