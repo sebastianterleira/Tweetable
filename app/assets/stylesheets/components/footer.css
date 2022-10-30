@@ -17,14 +17,23 @@
     flex-wrap: wrap;
   }
   
-  .footer-content__student {
+  .footer-content__dev {
     display:  flex;
     gap: 6px;
     flex-direction: row;
     align-items: center;
   }
   
-  .footer-content__student img{
+  .footer-content__dev img{
     width: 12px;
     height: 12px;
+  }
+
+  .social {
+    display: flex;
+    gap: 22px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    align-content: space-between;
   }

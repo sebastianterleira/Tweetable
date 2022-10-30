@@ -143,3 +143,14 @@
   .center {
     text-align: center;
   }
+
+  .svg-social {
+    background-image: url("/images/github.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .flex-row {
+    flex-direction: row;
+  }
+
