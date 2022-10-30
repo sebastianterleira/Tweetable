@@ -66,5 +66,5 @@ group :development do
   # gem "spring"
 end
 
-gem 'devise'
-
+gem "devise"
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
