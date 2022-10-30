@@ -6,6 +6,22 @@
   </div>
 
   <div class="container-sm">
+
+<%= form_with(model: @user) do |form| %>
+  <div class="user--form">
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="mb-1">
       <%= f.label :email, class:"text-xs overline block"%>
