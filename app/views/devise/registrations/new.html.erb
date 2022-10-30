@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_with(model: @user, url: "/profile") do |form| %>
+<%= form_with(model: @user) do |form| %>
   <div class="user--form">
     <% if @user.errors.any? %>
       <div style="color: red">
@@ -16,7 +16,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  
+
   <div class="mb-1">
       <div>
         <%= f.label :username, class: "text-xs overline block"%>
@@ -95,12 +95,12 @@
       <% end %>
     </div>
 
-   <div class="center">
-      <%= f.submit "SIGN UP", class: "w-full button button--primary mb-1" %>
-      
+  <div class="center">
+    <%= f.submit "SIGN UP", class: "w-full button button--primary mb-1" %>
       <p class="mb-1">Already a member?</p>
-      <%= link_to "Sign in", new_user_session_path, class: "text-decoration-none pink-600"%>
+        <%= render "devise/shared/links" %>
     </div>
   </div>
+  <% end %>
 <% end %>
-<% end %>
+
