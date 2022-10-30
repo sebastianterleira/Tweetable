@@ -95,6 +95,10 @@ GEM
       warden (~> 1.2.3)
     digest (3.1.0)
     digest (3.1.0-java)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.10.0)
     faraday (2.6.0)
       faraday-net_http (>= 2.0, < 3.1)
@@ -275,6 +279,7 @@ DEPENDENCIES
   bootsnap
   debug
   devise
+  dotenv-rails
   importmap-rails
   omniauth-github!
   pg (~> 1.1)
