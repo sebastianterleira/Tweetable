@@ -1,11 +1,11 @@
 <div class="tweet-card">
   <div class="tweet-card__header"> <!-- Header -->
     <div class="user-avatar">
-      <%# if tweet.user.avatar.attached? %>
-        <%#= image_tag tweet.user.avatar %>
-      <%# else %>
-        <%#=  image_tag "user/default_user.jpg"%>
-      <%# end %>
+      <% if tweet.user.avatar.attached? %>
+        <%= image_tag tweet.user.avatar %>
+      <% else %>
+        <%=  image_tag "user/default_user.jpg"%>
+      <% end %>
     </div>
     <%= link_to tweet.user, class: "text-decoration-none gray-900" do%>
       <div class="mx-0.25">
@@ -25,10 +25,10 @@
   <div class="tweet-card__footer"> <!--Footer -->
     
     <div class="tweet-card__footer-buttons1"> <!-- First two buttons -->
-      <% if user_tweets.include?(tweet) %>
+      <%# <% if user_tweets.include?(tweet) %>
         <%= button_to tweet, method: :delete, class: "button-cleaned" do %>
           <%= image_tag "icons/erase.png" %>
-        <% end %>
+        <%# <% end %>
         <%= button_to  edit_tweet_path(tweet), method: :get, class: "button-cleaned" do %>
           <%= image_tag "icons/edit.png" %>
         <% end %>
