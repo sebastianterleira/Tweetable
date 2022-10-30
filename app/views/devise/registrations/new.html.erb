@@ -59,7 +59,7 @@
       </div>
       <div>
         <%= f.label :avatar, class:"text-xs overline block"%>
-        <%= f.file_field :avatar, class: "input", placeholder: "**********" %>
+        <%= f.file_field :avatar, class: "input" %>
       </div>
       <% if @user.errors.messages[:avatar].any? %>
         <span class="content-sm input__error-message block">
