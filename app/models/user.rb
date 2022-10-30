@@ -14,6 +14,6 @@ class User < ApplicationRecord
 	# validate :name, presence: true
 	validates :avatar, presence: false
 	#   has_secure_password
-	enum role: { basic: 0,
-    admin: 1 }
+	enum role: { admin: 0,
+    user: 1 }
 end

@@ -1,39 +1,106 @@
 <h2>Sign up</h2>
 
+<%= form_with(model: @user) do |form| %>
+  <div class="user--form">
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+  <div class="mb-1">
+      <div>
+        <%= f.label :username, class: "text-xs overline block"%>
+        <%= f.text_field :username, class: "input", placeholder: "example" %>
+      </div>  
+      <% if @user.errors.messages[:username].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:username].join(", ")%>
+        </span>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="mb-1">
+      <div>
+          <%= f.label :email, class:"text-xs overline block"%>
+          <%= f.email_field :email, class: "input", placeholder: "example@gamil.com" %>
+      </div>
+      <% if @user.errors.messages[:email].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:email].join(", ")%>
+        </span>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+  <div class="mb-1">
+      <div>
+        <%= f.label :name, class:"text-xs overline block"%>
+        <%= f.text_field :name, class: "input", placeholder: "Example Name" %>
+      </div>
+      <% if @user.errors.messages[:name].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:name].join(", ")%>
+        </span>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
+    <div class="mb-1">
+      <div class="user-main-image">
+        <%= image_tag "user/default_user.jpg" %>
+      </div>
+      <div>
+        <%= f.label :avatar, class:"text-xs overline block"%>
+        <%= f.file_field :avatar, class: "input", placeholder: "**********" %>
+      </div>
+      <% if @user.errors.messages[:avatar].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:avatar].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+  <div class="mb-1">
+    <div>
+    <%= f.label :password, class:"text-xs overline block" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "**********" %>
+    </div>
+    <% if @user.errors.messages[:password].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:password].join(", ")%>
+        </span>
+      <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+   <div class="mb-1">
+      <div>
+        <%= f.label :password_confirmation, class:"text-xs overline block"%>
+        <%= f.password_field :password_confirmation, class: "input", placeholder: "**********" %>
+      </div>
+      <% if @user.errors.messages[:password_confirmation].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:password_confirmation].join(", ")%>
+        </span>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="center">
+    <%= f.submit "SIGN UP", class: "w-full button button--primary mb-1" %>
+      <p class="mb-1">Already a member?</p>
+        <%= render "devise/shared/links" %>
+    </div>
   </div>
+  <% end %>
 <% end %>
 
-<%= render "devise/shared/links" %>
