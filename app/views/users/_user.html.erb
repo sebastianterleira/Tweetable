@@ -4,11 +4,11 @@
   </div>
 
   <div class="user-main-image">
-    <%# if user.avatar.attached? %>
-      <%#= image_tag user.avatar%>
-    <%# else %>
-      <%#= image_tag "user/default_user.jpg"%>
-    <%# end %>
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar%>
+    <% else %>
+      <%= image_tag "user/default_user.jpg"%>
+    <% end %>
   </div>
   <div class="w-full center mb-1.5">
     <h2 class="semibold head-xs mb-0.25"><%= user.name %></h2>

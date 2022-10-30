@@ -48,24 +48,24 @@
       <% end %>
     </div>
 
-    <%# <div class="mb-1">
-      <div class="user-main-image"> %>
-          <%# if user.avatar.attached? %>
-            <%#= image_tag user.avatar %>
-          <%# else %>
-            <%#= image_tag "user/default_user.jpg"%>
-          <%# end %>
-      <%# </div>
-      <div> %>
-        <%#= form.label :avatar, class:"text-xs overline"%>
-        <%#= form.file_field :avatar, class: "input", placeholder: "**********" %>
-      <%# </div> %>
-      <%# if user.errors.messages[:avatar].any? %>
-        <%# <span class="content-sm input__error-message block"> %>
-          <%#= user.errors.messages[:avatar].join(", ")%>
-        <%# </span> %>
-      <%# end %>
-    <%# </div> %>
+     <div class="mb-1">
+      <div class="user-main-image">
+          <% if user.avatar.attached? %>
+            <%= image_tag user.avatar %>
+          <% else %>
+            <%= image_tag "user/default_user.jpg"%>
+          <% end %>
+      </div>
+      <div>
+        <%= form.label :avatar, class:"text-xs overline"%>
+        <%= form.file_field :avatar, class: "input", placeholder: "**********" %>
+      </div>
+      <% if user.errors.messages[:avatar].any? %>
+        <span class="content-sm input__error-message block">
+          <%= user.errors.messages[:avatar].join(", ")%>
+        </span>
+      <% end %>
+    </div>
 
     <div class="mb-1">
       <div>
