@@ -18,7 +18,7 @@ goku.avatar.attach(io: File.open('db/image/Goku.png'), filename: 'Goku.png')
 nigga = User.create(email: "nigga@gmail.com", username: "drRealNeil", name: "The Real Neil", password: "nigga123", password_confirmation: "nigga123", role: 1)
 nigga.avatar.attach(io: File.open('db/image/nigga.png'), filename: 'nigga.png')
 
-mrD = User.create(email: "Diego@gmail.com", username: "Mr. D", name: "Diego Torres", password: "diego123", password_confirmationL: "diego123", role: 1)
+mrD = User.create(email: "Diego@gmail.com", username: "Mr. D", name: "Diego Torres", password: "diego123", password_confirmation: "diego123", role: 1)
 mrD.avatar.attach(io: File.open('db/image/MrD.png'), filename: 'MrD.png')
 
 thefist = User.create(email: "Thefist@gmail.com", username: "thefist", name: "The Fist", password: "thefist123", password_confirmation: "thefist123", role: 1)
