@@ -1,10 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<section class="section-sm">
+  <div class="container-sm">
+    <p style="color: green"><%= notice %></p>
+    <%= render @tweet, like_new: @like_new, user_tweets: @user_tweets, user_likes: @user_likes %>
 
-<%= render @tweet %>
+    <hr class="for-retweets">
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
+    <% if current_user %>
+      <div>
+        <%= render "comment", tweet_new: @tweet_new, parent_tweet: @tweet %>
+      </div>
+    <% end %>
 
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-</div>
+    <div>
+      <% @tweet.tweets.each do |retweet| %>
+        <%= render retweet, like_new: @like_new, user_tweets: @user_tweets, user_likes: @user_likes %>
+      <% end %>
+    </div>
+  </div>
+</section>
