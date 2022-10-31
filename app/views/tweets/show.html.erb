@@ -12,7 +12,7 @@
     <% end %>
 
     <div>
-      <% @tweet.tweets.each do |retweet| %>
+      <% @tweet.replies.each do |retweet| %>
         <%= render retweet, like_new: @like_new, user_tweets: @user_tweets, user_likes: @user_likes %>
       <% end %>
     </div>
