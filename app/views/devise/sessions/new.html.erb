@@ -22,6 +22,22 @@
     <% end %>
 <% end %>
 
+    <%- if devise_mapping.omniauthable? %>
+    <div class="center">
+      <p class="mb-1 text-xs overline">Continue with</p>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%# <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
+    <div data-turbo="false" class="mb-1">
+    <%= form_with(url: omniauth_authorize_path(resource_name, provider), method: :post) do |form|%>
+    <%=form.submit "Login with github #{OmniAuth::Utils.camelize(provider)}", class: "w-full button button--secondary mb-1"%>
+    <%end%>
+    </div>
+    <p class="mb-1 text-xs overline">Or</p>
+    </div>
+    <%# <br /> %>
+  <% end %>
+
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="mb-1">
       <%= f.label :email, class:"text-xs overline block"%>
@@ -36,10 +52,10 @@
   <div class="center">
       <%= f.submit "SIGN IN" ,class: "w-full button button--primary mb-1" %>
 
-      <p class="mb-1">Don’t have an account?</p>
-      <%= link_to "Create an account", new_user_registration_path, class: "text-decoration-none pink-600" %>
+    <p class="mb-1">Don’t have an account?</p>
     </div>
   </div>
 </section>
 <% end %>
+<%end%>
 

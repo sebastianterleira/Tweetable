@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
   root "tweets#index"
+  devise_for :users, controllers: { omniauth_callbacks: :callbacks }
 
   resources :likes, only: %i[create]
   resources :tweets
   resources :users
 
-  #customs routes
+  # customs routes
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#destroy"
@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   post "/profile", to: "users#create"
   get "/profile", to: "users#show"
 
+    # Omniauth
+    # get "/auth/github/callback", to: "sessions#create"
 end

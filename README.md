@@ -1,24 +1,24 @@
-# README
+# INSTALLATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Use the package manager `bundle` to install foobar
 
-Things you may want to cover:
+```bash
+$ bundle install
+```
 
-* Ruby version
+```bash
+$ rails db:setup
+```
 
-* System dependencies
+Use `rails db:setup` doesn't run the migrations so you'll have to run them manually
 
-* Configuration
+```bash
+$ rails db:migrate
+```
+## Env. 
 
-* Database creation
+To run omniauth with GitHub you can add an .env, here is an example, [environments](env.example)
 
-* Database initialization
+# HELP
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ Any questions, doubts about the installation of the application or error you can contact me via Email seb.terleira1204@gmail.com or also through my [Twitter](https://twitter.com/SebastianTerlei)
