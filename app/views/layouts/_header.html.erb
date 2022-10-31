@@ -21,16 +21,16 @@
             
           <ul class="expandable navbar--links list-style-none">
             <% if user_signed_in? %>
-                <li>
+                <div>
                    <%= link_to "Profile", @user, class: "link text-sm"%>
-                </li>
-                <li>
+                </div>
+                <div>
                     <%= button_to "Logout", destroy_user_session_path, class: "text-decoration-none button button--xs button--secondary", method: :delete, data: { turbo: false } %>
-                </li>
+                </div>
             <% else %>
-                <li>
+                <div>
                     <%= link_to "Login", new_user_session_path,  class: "button text-decoration-none button--primary" %>
-                </li>
+                </div>
             <% end %>
           </ul>
 
