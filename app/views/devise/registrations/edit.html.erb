@@ -1,0 +1,119 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_with(model: @user) do |form| %>
+  <div class="user--form">
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+ <div class="mb-1">
+      <div>
+        <%= f.label :username, class: "text-xs overline block"%>
+        <%= f.text_field :username, class: "input", placeholder: "example" %>
+      </div>  
+      <% if @user.errors.messages[:username].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:username].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+  <div class="mb-1">
+      <div>
+          <%= f.label :email, class:"text-xs overline block"%>
+          <%= f.email_field :email, class: "input", placeholder: "example@gamil.com" %>
+      </div>
+      <% if @user.errors.messages[:email].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:email].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+    <div class="mb-1">
+      <div>
+        <%= f.label :name, class:"text-xs overline block"%>
+        <%= f.text_field :name, class: "input", placeholder: "Example Name" %>
+      </div>
+      <% if @user.errors.messages[:name].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:name].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+     <div class="mb-1">
+      <div class="user-main-image">
+        <%= image_tag "user/default_user.jpg" %>
+      </div>
+      <div>
+        <%= f.label :avatar, class:"text-xs overline block"%>
+        <%= f.file_field :avatar, class: "input" %>
+      </div>
+      <% if @user.errors.messages[:avatar].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:avatar].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+    <div class="mb-1">
+      <div>
+        <%= f.label :password, class:"text-xs overline block"%>
+        <%= f.password_field :password, class: "input", placeholder: "**********" %>
+      </div>
+      <% if @user.errors.messages[:password].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:password].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+   <div class="mb-1">
+      <div>
+        <%= f.label :password_confirmation, class:"text-xs overline block"%>
+        <%= f.password_field :password_confirmation, class: "input", placeholder: "**********" %>
+      </div>
+      <% if @user.errors.messages[:password_confirmation].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:password_confirmation].join(", ")%>
+        </span>
+      <% end %>
+    </div>
+
+  <div class="mb-1">
+    <div>
+    <%= f.label :current_password, class:"text-xs overline block" %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "input", placeholder: "**********" %>
+    </div>
+    <% if @user.errors.messages[:password_confirmation].any? %>
+        <span class="content-sm input__error-message block">
+          <%= @user.errors.messages[:password_confirmation].join(", ")%>
+        </span>
+      <% end %>
+  </div>
+
+   <div class="w-full">
+      <%= f.submit "UPDATE", class: "w-full button button--primary" %>
+  </div>
+  <div class="center">
+      <%= link_to "Back", :back, class: "text-decoration-none pink-600" %>
+  </div>
+<% end %>
+
