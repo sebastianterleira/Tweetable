@@ -18,7 +18,3 @@ $ rails db:migrate
 ## Env. 
 
 To run omniauth with GitHub you can add an .env, here is an example, [environments](env.example)
-
-# HELP
-
- Any questions, doubts about the installation of the application or error you can contact me via Email seb.terleira1204@gmail.com or also through my [Twitter](https://twitter.com/SebastianTerlei)
